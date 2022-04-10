@@ -8,6 +8,10 @@ input.onButtonPressed(Button.A, function () {
         printStrips()
     }
 })
+input.onPinPressed(TouchPin.P2, function () {
+    music.setTempo(120)
+    music.startMelody(music.builtInMelody(Melodies.Wawawawaa), MelodyOptions.Once)
+})
 function printStrips () {
     Strip_A.setPixelColor(A % Strip_Length, neopixel.colors(NeoPixelColors.Red))
     strip_B.setPixelColor(B % Strip_Length, neopixel.colors(NeoPixelColors.Green))
@@ -44,6 +48,9 @@ let Red_Won = 0
 let Green_Won = 0
 let Round = 0
 pins.setAudioPin(AnalogPin.P15)
+pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Resistive)
+pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Resistive)
+pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Resistive)
 Round = 2
 Green_Won = 0
 Red_Won = 0
